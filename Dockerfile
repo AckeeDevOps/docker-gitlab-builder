@@ -1,6 +1,6 @@
 FROM docker:19.03
 
-RUN apk add jq
+RUN apk add curl jq
 
 ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
 RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" -O google-cloud-sdk.tar.gz && \
