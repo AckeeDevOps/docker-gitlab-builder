@@ -1,6 +1,6 @@
 FROM docker:19.03
 
-RUN apk add curl jq
+RUN apk add --no-cache curl jq
 
 ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
 RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" -O google-cloud-sdk.tar.gz && \
@@ -27,3 +27,5 @@ RUN wget -q https://github.com/AckeeDevOps/vaultier/releases/download/v2.1.0/vau
     mv vaultier /usr/local/bin/vaultier && \
     chmod +x /usr/local/bin/vaultier && \
     rm vaultier.tar.gz
+
+COPY --from=docker/compose:alpine-1.25.5 /usr/local/bin/docker-compose /usr/local/bin/
