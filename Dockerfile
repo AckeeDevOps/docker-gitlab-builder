@@ -12,7 +12,7 @@ RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" 
     gcloud components install gsutil && \
     rm google-cloud-sdk.tar.gz
 
-RUN wget -q https://get.helm.sh/helm-v3.1.2-linux-amd64.tar.gz -O helm.tar.gz && \
+RUN wget -q https://get.helm.sh/helm-v3.2.0-linux-amd64.tar.gz -O helm.tar.gz && \
     tar xf helm.tar.gz && \
     mv linux-amd64/helm /usr/local/bin/helm && \
     rm -r linux-amd64
