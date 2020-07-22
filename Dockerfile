@@ -5,7 +5,7 @@ RUN apk add --no-cache bash curl jq
 ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
 RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" -O google-cloud-sdk.tar.gz && \
     tar -xf google-cloud-sdk.tar.gz -C /opt && \
-    apk add python && \
+    apk add python3 && \
     gcloud config set core/disable_usage_reporting true && \
     gcloud config set component_manager/disable_update_check true && \
     gcloud components install kubectl && \
@@ -30,3 +30,6 @@ RUN wget -q https://github.com/AckeeDevOps/vaultier/releases/download/v2.1.0/vau
     rm vaultier.tar.gz
 
 COPY --from=docker/compose:alpine-1.25.5 /usr/local/bin/docker-compose /usr/local/bin/
+
+ADD https://raw.githubusercontent.com/AckeeDevOps/gitlab-ci-utils/1.5.0/scripts/helper_functions.sh /
+RUN chmod +x /helper_functions.sh
