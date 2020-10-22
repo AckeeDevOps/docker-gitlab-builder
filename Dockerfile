@@ -23,13 +23,5 @@ RUN wget -q https://releases.hashicorp.com/vault/1.4.0/vault_1.4.0_linux_amd64.z
     chmod +x /usr/local/bin/vault && \
     rm vault.zip
 
-RUN wget -q https://github.com/AckeeDevOps/vaultier/releases/download/v2.1.0/vaultier_2.1.0_Linux_x86_64.tar.gz -O vaultier.tar.gz && \
-    tar -xvf vaultier.tar.gz vaultier && \
-    mv vaultier /usr/local/bin/vaultier && \
-    chmod +x /usr/local/bin/vaultier && \
-    rm vaultier.tar.gz
-
 COPY --from=docker/compose:alpine-1.25.5 /usr/local/bin/docker-compose /usr/local/bin/
 
-ADD https://raw.githubusercontent.com/AckeeDevOps/gitlab-ci-utils/1.5.0/scripts/helper_functions.sh /
-RUN chmod +x /helper_functions.sh
