@@ -5,7 +5,7 @@ RUN apk add --no-cache bash coreutils curl jq
 ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
 RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" -O google-cloud-sdk.tar.gz && \
     tar -xf google-cloud-sdk.tar.gz -C /opt && \
-    apk add python3 && \
+    apk add python3 rsync && \
     gcloud config set core/disable_usage_reporting true && \
     gcloud config set component_manager/disable_update_check true && \
     gcloud components install kubectl && \
@@ -24,4 +24,3 @@ RUN wget -q https://releases.hashicorp.com/vault/1.4.0/vault_1.4.0_linux_amd64.z
     rm vault.zip
 
 COPY --from=docker/compose:alpine-1.25.5 /usr/local/bin/docker-compose /usr/local/bin/
-
