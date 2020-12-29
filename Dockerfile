@@ -23,4 +23,4 @@ RUN wget -q https://releases.hashicorp.com/vault/1.5.4/vault_1.5.4_linux_amd64.z
     chmod +x /usr/local/bin/vault && \
     rm vault.zip
 
-COPY --from=docker/compose:alpine-1.25.5 /usr/local/bin/docker-compose /usr/local/bin/
+COPY --from=docker/compose:alpine-1.27.4 /usr/local/bin/docker-compose /usr/local/bin/
