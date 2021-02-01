@@ -1,11 +1,12 @@
-FROM docker:19.03
+FROM docker:20.10.2
 
 RUN apk add --no-cache bash coreutils curl jq
 
 ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
 RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" -O google-cloud-sdk.tar.gz && \
     tar -xf google-cloud-sdk.tar.gz -C /opt && \
-    apk add python3 rsync && \
+    apk add python3 rsync py3-pip && \
+    pip3 install yq && \
     gcloud config set core/disable_usage_reporting true && \
     gcloud config set component_manager/disable_update_check true && \
     gcloud components install kubectl && \
