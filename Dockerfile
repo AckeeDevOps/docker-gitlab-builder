@@ -1,6 +1,7 @@
 FROM docker:19.03
 
-RUN apk add --no-cache bash coreutils curl jq git python3 rsync zip
+RUN apk add --no-cache bash coreutils curl jq git python3 rsync zip py3-pip
+RUN pip3 install yq
 
 ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
 RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" -O google-cloud-sdk.tar.gz && \
