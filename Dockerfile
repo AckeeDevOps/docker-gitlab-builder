@@ -1,6 +1,6 @@
 FROM docker:19.03
 
-RUN apk add --no-cache bash coreutils curl jq git python3 rsync zip py3-pip
+RUN apk add --no-cache bash coreutils curl jq git python3 rsync zip py3-pip gettext
 RUN pip3 install yq
 
 ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
@@ -10,6 +10,8 @@ RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" 
     gcloud config set component_manager/disable_update_check true && \
     gcloud components install kubectl && \
     gcloud components install gsutil && \
+    gcloud components install beta && \
+    gcloud components update && \
     rm google-cloud-sdk.tar.gz
 
 RUN wget -q https://get.helm.sh/helm-v3.4.2-linux-amd64.tar.gz -O helm.tar.gz && \
