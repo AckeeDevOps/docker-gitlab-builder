@@ -1,4 +1,4 @@
-FROM docker:19.03
+FROM docker:20.10
 
 RUN apk add --no-cache bash coreutils curl jq git python3 rsync zip py3-pip gettext
 RUN pip3 install yq
