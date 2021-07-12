@@ -1,5 +1,9 @@
 FROM docker:19.03
 
+LABEL tag="ackee-gitlab" \
+      author="Ackee 🦄" \
+      description="Tailor-made image for our stack"
+
 RUN apk add --no-cache bash coreutils curl jq git python3 rsync zip py3-pip gettext
 RUN pip3 install yq
 
