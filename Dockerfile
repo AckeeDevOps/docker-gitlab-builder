@@ -19,12 +19,12 @@ RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" 
     gcloud components update && \
     rm google-cloud-sdk.tar.gz
 
-RUN wget -q https://get.helm.sh/helm-v3.4.2-linux-amd64.tar.gz -O helm.tar.gz && \
+RUN wget -q https://get.helm.sh/helm-v3.5.3-linux-amd64.tar.gz -O helm.tar.gz && \
     tar xf helm.tar.gz && \
     mv linux-amd64/helm /usr/local/bin/helm && \
     rm -r linux-amd64
 
-RUN wget -q https://releases.hashicorp.com/vault/1.5.4/vault_1.5.4_linux_amd64.zip -O vault.zip && \
+RUN wget -q https://releases.hashicorp.com/vault/1.8.4/vault_1.8.4_linux_amd64.zip -O vault.zip && \
     unzip vault.zip && \
     mv vault /usr/local/bin/vault && \
     chmod +x /usr/local/bin/vault && \
