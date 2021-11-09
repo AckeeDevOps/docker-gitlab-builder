@@ -1,13 +1,15 @@
-FROM docker:19.03
+FROM docker:20.10.10
 
 LABEL tag="ackee-gitlab" \
       author="Ackee 🦄" \
       description="Tailor-made image for our stack"
 
+ENV GITLAB_CI_UTILS_VERSION "2.7.0"
+ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
+
 RUN apk add --no-cache bash coreutils curl jq git python3 rsync zip py3-pip gettext
 RUN pip3 install yq
 
-ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
 RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" -O google-cloud-sdk.tar.gz && \
     tar -xf google-cloud-sdk.tar.gz -C /opt && \
     gcloud config set core/disable_usage_reporting true && \
@@ -31,3 +33,7 @@ RUN wget -q https://releases.hashicorp.com/vault/1.8.4/vault_1.8.4_linux_amd64.z
     rm vault.zip
 
 COPY --from=docker/compose:alpine-1.27.4 /usr/local/bin/docker-compose /usr/local/bin/
+
+ADD https://raw.githubusercontent.com/AckeeDevOps/gitlab-ci-utils/$GITLAB_CI_UTILS_VERSION/scripts/helper_functions.sh /usr/local/bin/helper_functions.sh
+
+RUN chmod +x /usr/local/bin/helper_functions.sh
