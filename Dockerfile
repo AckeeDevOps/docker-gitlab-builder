@@ -4,7 +4,7 @@ LABEL tag="ackee-gitlab" \
       author="Ackee 🦄" \
       description="Tailor-made image for our stack"
 
-ENV GITLAB_CI_UTILS_VERSION "2.10.0"
+ENV GITLAB_CI_UTILS_VERSION "2.7.0"
 ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
 
 RUN apk add --no-cache bash coreutils curl jq git python3 rsync zip py3-pip gettext
