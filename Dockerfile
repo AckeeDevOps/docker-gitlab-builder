@@ -1,10 +1,10 @@
-FROM docker:20.10.16
+FROM docker:20.10.17
 
 LABEL tag="ackee-gitlab" \
       author="Ackee 🦄" \
       description="Tailor-made image for our stack"
 
-ENV GITLAB_CI_UTILS_VERSION "2.7.0"
+ENV GITLAB_CI_UTILS_VERSION "2.13.0"
 ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
 
 RUN apk add --no-cache bash coreutils curl jq git python3 rsync zip py3-pip gettext
@@ -26,7 +26,7 @@ RUN wget -q https://get.helm.sh/helm-v3.5.3-linux-amd64.tar.gz -O helm.tar.gz &&
     mv linux-amd64/helm /usr/local/bin/helm && \
     rm -r linux-amd64
 
-RUN wget -q https://releases.hashicorp.com/vault/1.8.4/vault_1.8.4_linux_amd64.zip -O vault.zip && \
+RUN wget -q https://releases.hashicorp.com/vault/1.11.2/vault_1.11.2_linux_amd64.zip -O vault.zip && \
     unzip vault.zip && \
     mv vault /usr/local/bin/vault && \
     chmod +x /usr/local/bin/vault && \
