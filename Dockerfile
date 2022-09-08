@@ -32,6 +32,10 @@ RUN wget -q https://releases.hashicorp.com/vault/1.11.2/vault_1.11.2_linux_amd64
     chmod +x /usr/local/bin/vault && \
     rm vault.zip
 
+RUN wget -q https://github.com/argoproj/argo-rollouts/releases/download/v1.2.2/kubectl-argo-rollouts-linux-amd64 -O kubectl-argo-rollouts && \
+    mv kubectl-argo-rollouts /usr/local/bin && \
+    chmod +x /usr/local/bin/kubectl-argo-rollouts
+
 COPY --from=docker/compose:alpine-1.27.4 /usr/local/bin/docker-compose /usr/local/bin/
 
 ADD https://raw.githubusercontent.com/AckeeDevOps/gitlab-ci-utils/$GITLAB_CI_UTILS_VERSION/scripts/helper_functions.sh /usr/local/bin/helper_functions.sh
