@@ -18,6 +18,7 @@ RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" 
     gcloud components install gsutil && \
     gcloud components install beta && \
     gcloud components install alpha && \
+    gcloud components install gke-gcloud-auth-plugin && \
     gcloud components update && \
     rm google-cloud-sdk.tar.gz
 
