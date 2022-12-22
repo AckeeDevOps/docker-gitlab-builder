@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.5.0] - 2022-12-22
+### Changed
+- Bump version of base image to 20.10.21
+### Removed
+- Cloud SDK backup files to reduce Docker image size
+
 ## [4.4.0] - 2022-09-09
 ### Added
 - `gke-gcloud-auth-plugin` for kubectl as required by upstream
