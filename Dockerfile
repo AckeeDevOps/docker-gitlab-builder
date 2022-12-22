@@ -22,7 +22,7 @@ RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" 
     gcloud components update && \
     rm -rf $(find /opt/google-cloud-sdk/ -regex ".*/__pycache__") && \
     rm -rf /opt/google-cloud-sdk/.install/.backup && \
-    google-cloud-sdk.tar.gz
+    rm google-cloud-sdk.tar.gz
 
 RUN wget -q https://get.helm.sh/helm-v3.5.3-linux-amd64.tar.gz -O helm.tar.gz && \
     tar xf helm.tar.gz && \
