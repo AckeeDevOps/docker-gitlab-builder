@@ -7,8 +7,7 @@ LABEL tag="ackee-gitlab" \
 ENV GITLAB_CI_UTILS_VERSION "2.13.0"
 ENV PATH "$PATH:/opt/google-cloud-sdk/bin"
 
-RUN apk add --no-cache bash coreutils curl jq git python3 rsync zip py3-pip gettext
-RUN pip3 install yq
+RUN apk add --no-cache bash coreutils curl jq git python3 rsync zip yq-python gettext
 
 RUN wget -q "https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz" -O google-cloud-sdk.tar.gz && \
     tar -xf google-cloud-sdk.tar.gz -C /opt && \
