@@ -1,4 +1,4 @@
-FROM docker:26.1.3
+FROM docker:27.0.3
 
 LABEL tag="ackee-gitlab" \
       author="Ackee 🦄" \
